@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: book-front
+  labels:
+    name: apache
+    managed-by: devops
+    version: "2"
+    component: frontend
+    part-of: library
+    instance: April2026
+    client: ServiceNow
+    env: dev
+spec:
+  containers:
+  - name: boxone
+    image: docker.io/library/nginx:latest
+    ports:
+    - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: book-back
+  labels:
+    name: mysql
+    managed-by: db
+    version: "1"
+    component: backend
+    part-of: library
+    instance: Dec2026
+    client: ServiceNow
+    env: prod
+spec:
+  containers:
+  - name: boxone
+    image: docker.io/library/nginx:latest
+    ports:
+    - containerPort: 80

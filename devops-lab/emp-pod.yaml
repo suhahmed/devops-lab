@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Pod 
+metadata: 
+  name: emp-front
+  labels:
+    name: nginx
+    managed-by: SRE
+    version: "1.31"
+    component: frontend
+    part-of: employee
+    instance: Jan2026
+    client: ServiceNow
+    env: prod
+spec: 
+  containers:
+  - name: boxone
+    image: docker.io/library/nginx:latest
+    ports:
+    - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Pod 
+metadata: 
+  name: emp-back
+  labels:
+    name: dbapp
+    managed-by: SRE-DB
+    version: "1"
+    component: backend
+    part-of: employee
+    instance: Apr2026
+    client: ServiceNow
+    env: test
+spec: 
+  containers:
+  - name: boxone
+    image: docker.io/library/nginx:latest
+    ports:
+    - containerPort: 80
